@@ -82,7 +82,7 @@ export const disableProduct = async (req, res) => {
       const product = await products.findByPk(id_product); // Asegurarse que se espera el resultado con await
       console.log(id_product)
       if (product) {
-        product.status_product = 'inactive'
+        product.status = 'inactive'
         await product.save()
         res.status(200).send({ message: 'Product Inactive', product: product })
       }
@@ -101,7 +101,7 @@ export const disableProduct = async (req, res) => {
       const product = await products.findByPk(id_product); // Asegurarse que se espera el resultado con await
       
       if (product) {
-        product.status_product = 'active'
+        product.status = 'active'
         await product.save()
         res.status(200).send({ message: 'Product active', product: product })
       }
